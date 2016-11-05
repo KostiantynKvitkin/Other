@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок 1. Селекторы.</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+              crossorigin="anonymous"></script>
+    <!--<style>
+
+        html body ul li.even{
+            color: blue;
+        }
+        html body ul li.odd{
+            color: red;
+        }
+    </style>-->
+    <script>
+        //jQuery
+        $(document).ready(function () {
+            //Базовые селекторы
+            //$() == jQuery()
+
+            //Выборка всего
+            $('*').css('color', 'green');
+
+            //Выборка по тегу HTML
+            $('p').css('color', 'red');
+
+            //Выборка по классу
+            $('.p2').css('color', 'orange');
+
+            //Выборка по id
+            $('#p1').css('color', 'blue');
+
+            //Комбинированные селекторы
+            //Несколько элементов
+            //Выборка всего
+            $('#p1,.p2').css('color', 'yellow');
+
+            //Вложенный тех span в ul
+            $('ul span').css('color', 'violet');
+
+            //Выбрать все span, которые являются прямыми потомками li a
+            $('li a > span').css('color', 'black');
+
+            //Выбрать p, который следует непосредственно за .p2
+            $('.p2 + p').css('color', 'gold');
+            $('.p2').next().css('color', 'aqua');
+
+            //~
+            $('.p2 ~ p').css('color', 'brown');
+
+            //Селекторы по атрибутам
+            $('a[href]').css('background-color', 'grey');
+            $('a[href="http://yandex.ru/"]').css('background-color', 'pink');
+
+            $('a[href!="http://yandex.ru/"]').css('background-color', 'LAVENDER');
+
+            $('a[href^="https://"]').css('background-color', 'yellowgreen');
+
+            $('a[href$=".ru/"]').css('background-color', 'lime');
+
+            //В середине
+            $('a[href*="ya"]').css('background-color', 'tan');
+            $('a[href*="ya"][class*="links_1"]').css('background-color', 'khaki');
+
+            //Фильтры
+            //Нечетные
+            $('ul li:even').addClass('even').css('color', 'blue');
+            //Четные
+            $('ul li:odd').addClass('odd').css('color', 'red');
+
+            //:first - первый элемент из выборки
+            $('ul li:first a').css('color', '#00A79A');
+
+            //:last - последний элемент из выборки
+            $('ul li:last a').css('color', 'Magenta');
+
+            //Выбор элемента по номеру
+            $('ul li:eq(2) a').css('color', 'brown');
+
+            //Выбор элемента по отсутствию селектора
+            $('p:not(#p1)').css('color', 'Navy');
+
+            //:gt - элементы с индексом превышающим n
+            $('ul li:gt(2) a').css('color', '#6B8E23');
+
+            //:lt - элементы с индексом меньшим чем n
+            $('ul li:lt(2) a').css('color', '#800000');
+
+            //Выборка всех заголовков
+            $(':header').css('color', 'red');
+
+            //Скрытые элементы
+            $(':hidden');
+
+            //Видимые на странице элементы
+            $(':visible');
+
+            //Фильтры по содержимому
+
+            //Элементы, содержащие определенный текст
+            $('p:contains(Параграф 3)').css('color', 'Salmon');
+
+            //Выбрать все p без содержимого
+            $('p:empty').css('color', 'red');
+
+            //Выбирает те элементы, потомки которых содержат селектор span
+            $('li a:has(span)').css('color', 'blue');
+
+
+
+
+        });
+
+
+        //Чистый JavaScript
+//        window.onload = function () {
+//            var p = document.getElementById('p1');
+//            p.style.color = 'red';
+//
+//            document.getElementsByClassName('mylink')[0].style.color = 'green';
+//        };
+
+    </script>
+</head>
+<body>
+<h1>Заголовок 1</h1>
+<p id="p1">Параграф 1</p>
+<p class="p2">Параграф 2</p>
+<p>Параграф 3</p>
+<h3 class="h3">Заголовок 1</h3>
+<h3>Заголовок 1</h3>
+<p>Параграф 4</p>
+<span>Важный текст 1</span>
+<ul>
+    <li><a href="http://yandex.ru/" class="mylink"><span>Важный текст 1</span> - http://yandex.ru/</a></li>
+    <li><a href="http://yandex.ru/" class="mylink links_1">http://yandex.ru/</a></li>
+    <li><a href="http://ya.ru/" class="mylink links_1">http://ya.ru/</a></li>
+    <li><a href="https://google.com/" class="mylink">https://google.ru/</a></li>
+    <li><a href="https://yandex.com/" class="mylink">https://yandex.ru/</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JavaScript</title>
+  <meta charset="utf-8">
+  <!-- <script src="https://js.cx/test/libs.js"></script> -->          <!--зовнішний варіант-->
+            <!--мої спеки-->
+  <!-- <script src="JSs/SomeOtherFeatures_setTimeout и setIntervalTest.js"></script> -->
+          
+</head>
+
+<body>
+
+
+
+<script type="text/javascript">
+  'use strict';
+
+/*  class User {
+
+    constructor (name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    print() {
+      console.log('имя ' + this.name + 'возраст ' + this.age);
+      console.log(this.city);
+    }
+  }
+
+*/  
+
+  function User(name, age) {
+    this.nameuser = name;
+    this.age = age;
+  }
+
+  User.prototype.print = function() {
+    return 'Имя: ' + this.nameuser + ',  Возраст: ' + this.age;
+    // console.log('Имя: ' + this.nameuser + 'Возраст: ' + this.age);
+    // console.log( this.city);
+  };
+
+  User.prototype.city = 'Kharkov';
+
+  function Person(name, age, adress) {
+    User.call(this, name, age);
+    this.adress = adress;
+  }
+
+  Person.prototype = Object.create(User);
+  Person.prototype.constructor = Person;
+
+  Person.prototype.print = function() {
+    
+    return User.prototype.print.apply(this) + '  Адрес: '+ this.adress;
+    // ;
+    // console.log('  Адрес: '+ this.adress);
+
+  };
+
+
+
+  let vasya = new User('Вася', 25);
+  let vasya2 = new User('Вася22', 252);
+  vasya2.city = 'Киев';
+
+  console.log(vasya.print());
+  console.log(vasya2.print());
+
+  // console.log(vasya2 instanceof User);
+  // console.log(vasya2 instanceof Object);
+
+  let Loh = new Person('Loshare', 53, ['losharska', 23, 45]);
+  console.log(Loh.print() );
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JavaScript</title>
+  <meta charset="utf-8">
+  <!-- <script src="https://js.cx/test/libs.js"></script> -->          <!--зовнішний варіант-->
+            <!--мої спеки-->
+  <!-- <script src="JSs/SomeOtherFeatures_setTimeout и setIntervalTest.js"></script> -->
+          
+</head>
+
+<body>
+
+
+
+<script>
+  'use strict';
+
+/*
+  console.log(
+  (function f() {
+    //function f() { return 1 }
+    
+    function f() { return 2 }
+
+    return f();
+
+  })());
+
+
+
+
+  var car = {
+        color: 'red',
+        getColor: function() {
+            alert(this.color);
+        }
+      };
+  car.getColor();
+  var getColor = car.getColor;
+  getColor();
+*/
+
+  function Book() {
+     this.name = 'foo'
+  }
+    
+  Book.prototype = {
+     getName: function() {
+        return this.name;
+     }
+  }
+    
+  var book = new Book();
+    
+  Book.prototype.getUpperName = function() {
+     return this.name.toUpperCase();
+  }
+    
+  console.log(book.getUpperName());
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
